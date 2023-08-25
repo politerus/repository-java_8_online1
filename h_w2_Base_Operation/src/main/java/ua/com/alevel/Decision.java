@@ -35,21 +35,9 @@ public class Decision {
         }
     }
 
-    // public static void getTime(Integer lessons) {
-       /* //уроки с маленьким перерывом
-        int shortBreakLessons = (lessons) / 2;
-        //уроки с большим перерывом
-        int longBreakLessons = (lessons - 1) / 2;
-        int totalMinutes = (lessons * 45 )+ (shortBreakLessons * 5 )+ (longBreakLessons * 15 + 9 * 60);
-        int inHours = totalMinutes / 60;
-        int inMinutes = totalMinutes % 60;
-        System.out.println("Время окончания урока: " +lessons +" в Часах"+ inHours + " В минутах " + inMinutes);
-
-        */
 
 
 
-        // Выводим время окончания урока
-        //  System.out.println("Время окончания урока: " + hours + " " + minutes);
-    //  }
+
+
 }
