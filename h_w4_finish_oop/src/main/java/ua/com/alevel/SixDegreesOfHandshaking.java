@@ -2,13 +2,13 @@ package ua.com.alevel;
 
 public class SixDegreesOfHandshaking {
     public static void main(String[] args) {
-        Person[] people = createPeople(6);
+        Person[] people = createPeople();
         simulateHandshaking(people);
     }
 
-    private static Person[] createPeople(int count) {
-        Person[] people = new Person[count];
-        for (int i = 0; i < count; i++) {
+    private static Person[] createPeople() {
+        Person[] people = new Person[6];
+        for (int i = 0; i < 6; i++) {
             people[i] = new Person("Персона " + (i + 1));
         }
         return people;
@@ -20,7 +20,7 @@ public class SixDegreesOfHandshaking {
         }
 
         while (!people[5].hasReceivedMessage()) {
-            // Continue simulating until the 6th person receives a message.
+            // продолжает пока 6 персона  не получит сообщение
             for (int i = 0; i < people.length - 1; i++) {
                 people[i].sendMessage(people[i + 1]);
             }
