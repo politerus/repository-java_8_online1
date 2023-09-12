@@ -1,4 +1,5 @@
 package ua.com.alevel;
+
 import java.util.Scanner;
 
 public class TaskManager {
