@@ -1,6 +1,7 @@
 package ua.com.alevel;
 
 class Person {
+
     private final String name;
     private boolean receivedMessage = false;
 

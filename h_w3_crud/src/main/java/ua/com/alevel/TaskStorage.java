@@ -26,7 +26,6 @@ public class TaskStorage {
         return tasks;
     }
 
-
     public void deleteTask(int id) {
         tasks.removeIf(task -> task.getId() == id);
     }
