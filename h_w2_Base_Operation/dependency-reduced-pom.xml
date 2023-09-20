@@ -28,7 +28,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>ua.com.alevel.Main</mainClass>
+                  <mainClass>ua.com.alevel.Star</mainClass>
                 </transformer>
               </transformers>
             </configuration>
