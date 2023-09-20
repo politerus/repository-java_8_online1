@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.Collection;
 
 public class Dictionary<K, V> {
-    private Map<K, V> map;
+    private final Map<K, V> map;
 
     public Dictionary() {
         map = new HashMap<>();
@@ -31,19 +31,18 @@ public class Dictionary<K, V> {
         return map.get(key);
     }
 
-    public boolean put(K key, V value) {
+    public void put(K key, V value) {
         if (key == null || value == null) {
             throw new IllegalArgumentException("Key and value cannot be null");
         }
         map.put(key, value);
-        return true;
     }
 
-    public boolean remove(K key) {
-        return map.remove(key) != null;
+    public void remove(K key) {
+        map.remove(key);
     }
 
-    public boolean putAll(Dictionary<K, V> dictionary) {
+    public void putAll(Dictionary<K, V> dictionary) {
         if (dictionary == null) {
             throw new IllegalArgumentException("Dictionary cannot be null");
         }
@@ -53,12 +52,10 @@ public class Dictionary<K, V> {
             this.put(key, value);
         }
 
-        return true;
     }
 
-    public boolean clear() {
+    public void clear() {
         map.clear();
-        return true;
     }
 
     public Set<K> keySet() {
