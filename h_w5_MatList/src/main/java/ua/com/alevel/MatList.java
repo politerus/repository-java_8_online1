@@ -1,19 +1,16 @@
 package ua.com.alevel;
 
-
-
 import java.util.*;
 
 public class MatList<T extends Number & Comparable<? super T>> {
     private final List<T> data;
-    //  private List<Integer> elements;
-
 
     public MatList() {
-      data = new LinkedList<>();
-   }
+        data = new LinkedList<>();
+    }
+
     public void sortAscFromElement(T value) {
-                int startIndex = data.indexOf(value);
+        int startIndex = data.indexOf(value);
 
         if (startIndex != -1) {
             List<T> sublist = data.subList(startIndex, data.size());
@@ -22,6 +19,7 @@ public class MatList<T extends Number & Comparable<? super T>> {
             System.out.println("Элемент не найден в списке.");
         }
     }
+
     @SafeVarargs
     public MatList(T[]... numbers) {
         this();
@@ -31,7 +29,6 @@ public class MatList<T extends Number & Comparable<? super T>> {
             }
         }
     }
-
 
 
     public void add(T n) {
@@ -45,7 +42,6 @@ public class MatList<T extends Number & Comparable<? super T>> {
             data.addAll(list.data);
         }
     }
-
 
 
     public void sortDesc() {
@@ -126,13 +122,9 @@ public class MatList<T extends Number & Comparable<? super T>> {
     }
 
 
-
-
-
     public void clear() {
         data.clear();
     }
-
 
 
     public void print() {
@@ -159,6 +151,7 @@ public class MatList<T extends Number & Comparable<? super T>> {
         }
         return array;
     }
+
     public void sortAsc(int firstIndex, int lastIndex) {
         if (firstIndex >= 0 && lastIndex < data.size()) {
             List<T> sublist = data.subList(firstIndex, lastIndex + 1);

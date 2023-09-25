@@ -1,15 +1,13 @@
 package ua.com.alevel;
 
 
-
-class StudentGroupManagement  {
+class StudentGroupManagement {
     private final Student[] students;
     private final Group[] groups;
     private int studentCount;
     private int groupCount;
 
     public StudentGroupManagement(int maxStudents, int maxGroups) {
-
         students = new Student[maxStudents];
         groups = new Group[maxGroups];
         studentCount = 0;
@@ -37,6 +35,7 @@ class StudentGroupManagement  {
             System.out.println((i + 1) + ". " + groups[i]);
         }
     }
+
     public void assignStudentToGroup(int studentId, int groupId) {
         for (int i = 0; i < studentCount; i++) {
             if (students[i].getStudentId() == studentId) {
@@ -73,5 +72,5 @@ class StudentGroupManagement  {
         System.out.println("Student not found.");
     }
 
-    }
+}
 

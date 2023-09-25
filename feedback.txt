@@ -4,5 +4,55 @@
 3- Ответна фидбек в папке test
 4 - зараховую
 
+module 1 - 8 з 10 за модуль, чесно кажучи, взагалі не задоволен твоїм модеем((
+    немає розподілу по пакетам,
 
-Роби реформат коду, дуже брудний
+    Main extends StudentGroupManagement - це взагалі люте зло - маін тільки для старту апки, а не якоїсь логики
+    StudentGroupManagement - це взагалі якась каша
+
+    для прикладу
+
+        public void assignStudentToGroup(int studentId, int groupId) {
+            for (int i = 0; i < studentCount; i++) {
+                if (students[i].getStudentId() == studentId) {
+                    students[i] = new Student(students[i].getStudentId(), students[i].getName(), groupId);
+                    System.out.println("Student assigned to the group successfully!");
+                    return;
+                }
+            }
+            System.out.println("Student or group not found.");
+        }
+
+        public void removeStudentFromGroup(int studentId) {
+            for (int i = 0; i < studentCount; i++) {
+                if (students[i].getStudentId() == studentId) {
+                    students[i] = new Student(students[i].getStudentId(), students[i].getName(), 0);
+                    System.out.println("Student removed from the group successfully!");
+                    return;
+                }
+            }
+            System.out.println("Student not found.");
+        }
+
+        що роблять ці методи???
+        та й головне, яка між ними різниця окрім прінтлайну?
+
+        та найголовніше ...
+
+            public void listGroups() {
+                System.out.println("List of Groups:");
+                for (int i = 0; i < groupCount; i++) {
+                    System.out.println((i + 1) + ". " + groups[i]);
+                }
+            }
+
+            кухар біжить до кладовщика і просить картоплю, а той йому - вона в мене є, і на цьому все
+
+            хоча в тебе нема ні офіціантів, ні кухарів, ні кладовщика - все в одній каші
+
+5-6 - Роман ... нагадую - Використання класів колекцій, а також Vector та інших старих класів заборонено
+    давай наново)))
+7 - Роман ... нагадую - ИСПОЛЬЗОВАНИЕ коробочного reverse запрещено!
+    давай наново)))
+
+Роби реформат коду, дуже брудний!!!!

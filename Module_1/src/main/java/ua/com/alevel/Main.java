@@ -2,7 +2,8 @@ package ua.com.alevel;
 
 import java.util.Scanner;
 
-public class Main extends  StudentGroupManagement{
+public class Main extends StudentGroupManagement {
+
     public Main(int maxStudents, int maxGroups) {
         super(maxStudents, maxGroups);
     }
