@@ -12,9 +12,9 @@ public class Main {
         System.out.println("list3 = " + list3);
          System.out.println("Adding elements..");
 
-        list1.add(6);
+        list1.add(6, 8);
         list2.add(7, 8);
-        list3.add(9);
+        list3.add(9, 8);
 
         System.out.println("list1 = " + list1);
         System.out.println("list2 = " + list2);
