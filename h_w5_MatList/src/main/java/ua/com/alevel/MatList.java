@@ -1,176 +1,252 @@
 package ua.com.alevel;
 
+import java.util.Arrays;
+import java.util.Comparator;
 
+public class MatList<E extends Number & Comparable<E>> {
+    private static final int INITIAL_CAPACITY = 10;
+    private Object[] elements;
+    private int size;
 
-import java.util.*;
+    public MatList(int i, int i1, int i2, int i3, int i4, int i5) {
+    }
 
-public class MatList<T extends Number & Comparable<? super T>> {
-    private final List<T> data;
-    //  private List<Integer> elements;
+    public MatList(int i, int i1, int i2, int i3, int i4) {
+    }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public MatList() {
-      data = new LinkedList<>();
-   }
-    public void sortAscFromElement(T value) {
-                int startIndex = data.indexOf(value);
+        elements = new Object[INITIAL_CAPACITY];
+        size = 0;
+    }
 
-        if (startIndex != -1) {
-            List<T> sublist = data.subList(startIndex, data.size());
-            sublist.sort(Comparator.comparingDouble(Number::intValue));
-        } else {
-            System.out.println("Элемент не найден в списке.");
+    @SafeVarargs
+    public MatList(E[]... numbers) {
+        this();
+        for (E[] arr : numbers) {
+            addArray(arr);
         }
     }
+
     @SafeVarargs
-    public MatList(T[]... numbers) {
+    public MatList(MatList<E>... matLists) {
         this();
-        for (T[] arr : numbers) {
-            if (arr != null) {
-                data.addAll(Arrays.asList(arr));
+        for (MatList<E> matList : matLists) {
+            addArray((E[]) matList.toArray());
+        }
+    }
+
+    public void addArray(E[] n) {
+        ensureCapacity(size + n.length);
+        System.arraycopy(n, 0, elements, size, n.length);
+        size += n.length;
+    }
+
+    @SafeVarargs
+    public final void add(E... n) {
+        ensureCapacity(size + n.length);
+        for (E num : n) {
+            elements[size] = num;
+            size++;
+        }
+    }
+
+    public void join(MatList... ml) {
+        for (MatList matList : ml) {
+            for (int i = 0; i < matList.size; i++) {
+                add((E) matList.get(i)); // Cast to E
             }
         }
     }
 
+    public void intersection(MatList... ml) {
+        if (ml.length == 0) {
+            clear();
+            return;
+        }
 
-
-    public void add(T n) {
-        data.add(n);
-    }
-
-
-    @SafeVarargs
-    public final void join(MatList<T>... ml) {
-        for (MatList<T> list : ml) {
-            data.addAll(list.data);
+        for (int i = 0; i < size; i++) {
+            E num = (E) elements[i];
+            boolean isInAll = true;
+            for (MatList matList : ml) {
+                if (!matList.contains(num)) {
+                    isInAll = false;
+                    break;
+                }
+            }
+            if (!isInAll) {
+                remove(num);
+                i--;
+            }
         }
     }
 
-
-
     public void sortDesc() {
-        data.sort(Collections.reverseOrder());
+        Arrays.sort(elements, 0, size, (a, b) -> ((E) b).compareTo((E) a));
     }
 
     public void sortDesc(int firstIndex, int lastIndex) {
-        if (firstIndex >= 0 && lastIndex < data.size()) {
-            List<T> sublist = data.subList(firstIndex, lastIndex + 1);
-            sublist.sort(Collections.reverseOrder());
+        if (firstIndex < 0 || lastIndex >= size || firstIndex > lastIndex) {
+            throw new IllegalArgumentException("Invalid index range");
         }
+        Arrays.sort(elements, firstIndex, lastIndex + 1, (a, b) -> ((E) b).compareTo((E) a));
     }
 
-    public void sortDesc(T value) {
-        int index = data.indexOf(value);
-        if (index >= 0) {
-            sortDesc(index, data.size() - 1);
+    public void sortDesc(E value) {
+        if (!contains(value)) {
+            return;
         }
+        int index = indexOf(value);
+        sortDesc(index, size - 1);
     }
 
     public void sortAsc() {
-        data.sort(Comparable::compareTo);
+        Arrays.sort(elements, 0, size, Comparator.comparing(a -> ((E) a)));
     }
 
-
-    public Number get(int index) {
-        if (index >= 0 && index < data.size()) {
-            return data.get(index);
+    public E get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
         }
-        return null;
+        return (E) elements[index];
     }
 
     public Number getMax() {
-        if (!data.isEmpty()) {
-            return data.stream()
-                    .max(Comparator.naturalOrder())
-                    .get();
+        if (size == 0) {
+            throw new IllegalStateException("MatList is empty");
         }
-        return null;
+        sortDesc();
+        return (E) elements[0];
     }
 
     public Number getMin() {
-        if (!data.isEmpty()) {
-            return data.stream()
-                    .min(Comparator.naturalOrder())
-                    .get();
+        if (size == 0) {
+            throw new IllegalStateException("MatList is empty");
         }
-        return null;
+        sortAsc();
+        return (E) elements[0];
     }
 
     public Number getAverage() {
-        if (!data.isEmpty()) {
-            double sum = data.stream()
-                    .mapToDouble(Number::doubleValue)
-                    .sum();
-            return sum / data.size();
+        if (size == 0) {
+            throw new IllegalStateException("MatList is empty");
         }
-        return null;
+        double sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum += ((E) elements[i]).doubleValue();
+        }
+        return sum / size;
     }
 
     public Number getMedian() {
-        if (!data.isEmpty()) {
-            List<T> sortedData = new ArrayList<>(data);
-            sortedData.sort(Comparator.naturalOrder());
-
-            int middle = sortedData.size() / 2;
-            if (sortedData.size() % 2 == 0) {
-                return (sortedData.get(middle - 1).doubleValue() + sortedData.get(middle).doubleValue()) / 2;
-            } else {
-                return sortedData.get(middle);
-            }
+        if (size == 0) {
+            throw new IllegalStateException("MatList is empty");
         }
-        return null;
+        sortAsc();
+        if (size % 2 == 0) {
+            int middle1 = (size - 1) / 2;
+            int middle2 = size / 2;
+            return (((E) elements[middle1]).doubleValue() + ((E) elements[middle2]).doubleValue()) / 2;
+        } else {
+            int middle = size / 2;
+            return ((E) elements[middle]).doubleValue();
+        }
     }
 
     public Number[] toArray() {
-        return data.toArray(new Number[0]);
+        Number[] result = new Number[size];
+        System.arraycopy(elements, 0, result, 0, size);
+        return result;
     }
 
+    public MatList<E> cut(int firstIndex, int lastIndex) {
+        if (firstIndex < 0 || lastIndex >= size || firstIndex > lastIndex) {
+            throw new IllegalArgumentException("Invalid index range");
+        }
 
+        MatList<E> result = new MatList<>();
+        for (int i = firstIndex; i <= lastIndex; i++) {
+            result.add(get(i));
+        }
 
+        removeRange(firstIndex, lastIndex);
 
+        return result;
+    }
 
     public void clear() {
-        data.clear();
+        elements = new Object[INITIAL_CAPACITY];
+        size = 0;
     }
 
-
-
-    public void print() {
-        System.out.println(data);
-    }
-
-    public MatList<T> cut(int firstIndex, int lastIndex) {
-        MatList<T> cutList = new MatList<>();
-
-        if (firstIndex >= 0 && firstIndex <= lastIndex && lastIndex < data.size()) {
-            cutList.data.addAll(data.subList(firstIndex, lastIndex + 1));
-        } else {
-            System.out.println("Некорректные индексы для вырезания подсписка.");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < size; i++) {
+            sb.append(elements[i]);
+            if (i < size - 1) {
+                sb.append(", ");
+            }
         }
-
-        return cutList;
+        sb.append("]");
+        return sb.toString();
     }
 
-
-    public Number[] toArrayWithIndices() {
-        Number[] array = new Number[data.size()];
-        for (int i = 0; i < data.size(); i++) {
-            array[i] = data.get(i);
-        }
-        return array;
-    }
-    public void sortAsc(int firstIndex, int lastIndex) {
-        if (firstIndex >= 0 && lastIndex < data.size()) {
-            List<T> sublist = data.subList(firstIndex, lastIndex + 1);
-            sublist.sort(Comparator.naturalOrder());
+    private void ensureCapacity(int additionalCapacity) {
+        while (size + additionalCapacity > elements.length) {
+            elements = Arrays.copyOf(elements, elements.length * 2);
         }
     }
 
-    public void removeElement(int element) {
-        if (data != null) {
-            // Удаляем элемент из списка
-            data.removeIf(item -> item.intValue() == element);
+    private int indexOf(E value) {
+        for (int i = 0; i < size; i++) {
+            if (value.equals(elements[i])) {
+                return i;
+            }
         }
+        return -1;
+    }
+
+    private void remove(E element) {
+        for (int i = 0; i < size; i++) {
+            if (element.equals(elements[i])) {
+                System.arraycopy(elements, i + 1, elements, i, size - i - 1);
+                elements[size - 1] = null;
+                size--;
+                return;
+            }
+        }
+    }
+
+    private void removeRange(int fromIndex, int toIndex) {
+        int length = toIndex - fromIndex + 1;
+        System.arraycopy(elements, toIndex + 1, elements, fromIndex, size - toIndex - 1);
+        for (int i = size - length; i < size; i++) {
+            elements[i] = null;
+        }
+        size -= length;
+    }
+
+    private boolean contains(E element) {
+        for (int i = 0; i < size; i++) {
+            if (element.equals(elements[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public int size() {
+        return size;
     }
 
 }
