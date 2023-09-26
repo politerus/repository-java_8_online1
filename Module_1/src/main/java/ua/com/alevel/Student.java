@@ -1,7 +1,5 @@
 package ua.com.alevel;
 
-
-
 class Student {
     private final int studentId;
     private final String name;
