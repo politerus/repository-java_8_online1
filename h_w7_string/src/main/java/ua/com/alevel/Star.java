@@ -1,21 +1,26 @@
 package ua.com.alevel;
 
-import static ua.com.alevel.ReverseStringLibrary.reverse;
-import static ua.com.alevel.ReverseStringLibrary.reverseSubstring;
+
+import static ua.com.alevel.StringReverser.reverse;
 
 public class Star {
     public static void main(String[] args) {
-
         String input = "hello world";
-        System.out.println("Original: " + input);
-        System.out.println("Reversed: " + reverse(input));
+        String substring = "worl";
 
-        String input2 = "hello world, world";
-        System.out.println("Original: " + input2);
-        System.out.println("Reversed substring: " + reverseSubstring(input2, 6, 11));
 
-        String input3 = "hello world, start, end";
-        System.out.println("Original: " + input3);
-        System.out.println("Reversed substring: " + reverseSubstring(input3, "start", "end"));
+        String reversed1 = reverse(input);
+        System.out.println("Input: " + input);
+        System.out.println("Reversed: " + reversed1);
+
+
+        String reversed2 = reverse(input, substring);
+        System.out.println("Input: " + input);
+        System.out.println("Reversed: " + reversed2);
+
+
+        String reversed3 = reverse(input, 3, 7);
+        System.out.println("Input: " + input);
+        System.out.println("Reversed: " + reversed3);
     }
 }
