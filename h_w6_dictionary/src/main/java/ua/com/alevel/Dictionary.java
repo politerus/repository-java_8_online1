@@ -17,14 +17,17 @@ public class Dictionary<K, V> {
     }
 
     public int size() {
+
         return size;
     }
 
     public boolean isEmpty() {
+
         return size == 0;
     }
 
     public boolean containsKey(K key) {
+
         return getEntry(key) != null;
     }
 
