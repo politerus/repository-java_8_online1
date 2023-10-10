@@ -23,21 +23,7 @@ public class AuthorManager {
         saveAuthors();
     }
 
-/*
-    private void loadAuthors() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(AUTHORS_FILE))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                Author author = gson.fromJson(line, Author.class);
-                authors.add(author);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-
- */
     private void saveAuthors() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(AUTHORS_FILE))) {
             for (Author author : authors) {
