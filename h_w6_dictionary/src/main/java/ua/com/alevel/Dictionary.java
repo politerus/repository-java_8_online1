@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Dictionary<K, V> {
 
-
     private static final int DEFAULT_CAPACITY = 16;
     private static final float LOAD_FACTOR = 0.75f;
 
@@ -17,17 +16,14 @@ public class Dictionary<K, V> {
     }
 
     public int size() {
-
         return size;
     }
 
     public boolean isEmpty() {
-
         return size == 0;
     }
 
     public boolean containsKey(K key) {
-
         return getEntry(key) != null;
     }
 

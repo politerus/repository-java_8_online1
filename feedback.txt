@@ -59,3 +59,19 @@ module 1 - 8 з 10 за модуль, чесно кажучи, взагалі н
 
 6 - ти знущаєшся?))) - Hashtable Карл ... Hashtable - це що таке?)))
 5,8 - приймаю, норм зроблено
+
+6 - приймаю
+9- ну от, яж попереджав - books.json та authors.json - хто має створювати??? сам користувач???
+
+    java.io.FileNotFoundException: books.json (No such file or directory)
+            at java.base/java.io.FileInputStream.open0(Native Method)
+            at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+            at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+            at java.base/java.io.FileInputStream.<init>(FileInputStream.java:111)
+            at java.base/java.io.FileReader.<init>(FileReader.java:60)
+            at ua.com.alevel.manager.BookManager.loadBooks(BookManager.java:46)
+            at ua.com.alevel.manager.BookManager.<init>(BookManager.java:18)
+            at ua.com.alevel.menuandactions.Main.main(Main.java:18)
+            at ua.com.alevel.StartAplication.main(StartAplication.java:7)
+
+зараховую, але закриваючі очі
