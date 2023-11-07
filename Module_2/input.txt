@@ -1,4 +1,5 @@
-10
+11
+Rubizne
 Kyiv
 Kharkiv
 Odesa
@@ -48,6 +49,10 @@ Lviv 50
 Lutsk
 1
 Lviv 30
+Rubizne
+2
+Kharkiv 20
+Lviv 50
 2
 Kyiv Lviv
 Odesa Kharkiv
