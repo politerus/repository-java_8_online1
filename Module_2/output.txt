@@ -1,0 +1,2 @@
+The cheapest path from Ivano-Frankivsk to Dnipro costs: 160
+The cheapest path from Lviv to Lutsk costs: 30

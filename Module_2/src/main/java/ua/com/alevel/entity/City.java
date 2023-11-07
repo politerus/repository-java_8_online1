@@ -1,26 +1,35 @@
 package ua.com.alevel.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class City {
-    private String name;
-    private List<Neighbor> neighbors;
+    String name;
+    private final Map<City, Integer> neighbors = new HashMap<>();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public City(String name) {
         this.name = name;
     }
 
-    public List<Neighbor> getNeighbors() {
+    public void addNeighbor(City neighbor, int cost) {
+        neighbors.put(neighbor, cost);
+    }
+
+    public Map<City, Integer> getNeighbors() {
         return neighbors;
     }
 
-    public City(String name) {
-        setName(name);
-        this.neighbors = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City city)) return false;
+        return Objects.equals(name, city.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
