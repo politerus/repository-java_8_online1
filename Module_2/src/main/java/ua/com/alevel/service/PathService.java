@@ -10,7 +10,9 @@ public class PathService {
     private static final String INPUT_FILE = "input.txt";
     private static final String OUTPUT_FILE = "output.txt";
     private final List<String[]> pathsToFind = new ArrayList<>();
+
     public PathService() {
+        InputFileCreator.createInputFile();
         try {
             readInput();
         } catch (IOException e) {
