@@ -75,3 +75,6 @@ module 1 - 8 з 10 за модуль, чесно кажучи, взагалі н
             at ua.com.alevel.StartAplication.main(StartAplication.java:7)
 
 зараховую, але закриваючі очі
+
+module 2 - от норм)
+    і причепитися не ма що)
