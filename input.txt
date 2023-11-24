@@ -1,5 +1,4 @@
-11
-Rubizne
+10
 Kyiv
 Kharkiv
 Odesa
@@ -47,9 +46,6 @@ Ivano-Frankivsk
 1
 Lviv 50
 Lutsk
-1
-Lviv 30
-Rubizne
 1
 Lviv 30
 2

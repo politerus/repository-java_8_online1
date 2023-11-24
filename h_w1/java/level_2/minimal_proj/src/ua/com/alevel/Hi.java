@@ -1,12 +1,10 @@
 package ua.com.alevel;
 
-import ua.com.alevel.test.Text;
-
 public class Hi {
 
     public static void main(String[] args) {
 
-        Message m = new Message();
+        /*    Message m = new Message();
         byte b = Byte.MAX_VALUE;
         byte b1 = Byte.MIN_VALUE;
         short s = Short.MAX_VALUE;
@@ -18,4 +16,7 @@ public class Hi {
         m.print(String.valueOf(a));
         m.print(String.valueOf(l));
     }
+
+         */
+}
 }
