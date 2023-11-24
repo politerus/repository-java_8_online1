@@ -8,7 +8,7 @@ import java.util.*;
 public class PathService {
     private static final String INPUT_FILE = "input.txt";
     private static final String OUTPUT_FILE = "output.txt";
-    private static final int MAX_COST =20000 ;
+    private static final int MAX_COST = 20000;
     private final List<String[]> pathsToFind = new ArrayList<>();
     private static final Map<String, City> cities = new HashMap<>();
 
@@ -19,7 +19,9 @@ public class PathService {
         } catch (IOException e) {
             throw new RuntimeException("Failed to read cities from input file.", e);
         }
-    }private void readInput() throws IOException {
+    }
+
+    private void readInput() throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(INPUT_FILE))) {
             int numCities = Integer.parseInt(br.readLine().trim());
 
@@ -119,6 +121,7 @@ public class PathService {
 
         return distances.getOrDefault(endCity, -1);
     }
+
     public static void writePathToFile(String startCity, String destinationCity, int cost) {
         try (FileWriter fw = new FileWriter(OUTPUT_FILE, true);
              PrintWriter out = new PrintWriter(new BufferedWriter(fw))) {
