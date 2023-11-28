@@ -22,4 +22,4 @@ ALTER TABLE Students MODIFY group_id INT NULL;
 
 ALTER TABLE Students
     ADD CONSTRAINT FK_Student_Group FOREIGN KEY (group_id)
-        REFERENCES `Groups` (groupId) ON DELETE SET NULL;
+        REFERENCES `Groups` (group_Id) ON DELETE SET NULL;
