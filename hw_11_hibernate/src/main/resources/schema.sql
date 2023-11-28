@@ -10,14 +10,14 @@ CREATE TABLE Students (
                           foreign key (group_id) references `Groups`(group_id)
 );
 
-    ALTER TABLE Students
+ALTER TABLE Students
     DROP FOREIGN KEY Students_ibfk_1;
 
 
-        ALTER TABLE Students
-        ADD CONSTRAINT Students_ibfk_1 FOREIGN KEY (group_id)
+ALTER TABLE Students
+    ADD CONSTRAINT Students_ibfk_1 FOREIGN KEY (group_id)
         REFERENCES `Groups` (group_id) ON DELETE SET NULL;
-        ALTER TABLE Students MODIFY group_id INT NULL;
+ALTER TABLE Students MODIFY group_id INT NULL;
 
 
 ALTER TABLE Students

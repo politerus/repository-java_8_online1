@@ -112,15 +112,11 @@ public class MainCrudHiber {
                 case 6: {
                     System.out.print("Введіть ID групи для видалення: ");
                     int groupId = scanner.nextInt();
-
-                    // Удаление или обновление всех студентов в группе
                     List<Student> studentsInGroup = studentService.findStudentsByGroupId(groupId);
                     for (Student student : studentsInGroup) {
-                        student.setGroup(null); // Обнуляем группу у студента
-                        studentService.updateStudent(student); // Обновляем студента
+                        student.setGroup(null);
+                        studentService.updateStudent(student);
                     }
-
-                    // Теперь можно безопасно удалить группу
                     groupService.deleteGroup(groupId);
 
                     System.out.println("Група видалена.");

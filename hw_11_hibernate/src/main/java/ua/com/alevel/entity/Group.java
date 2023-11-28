@@ -11,17 +11,17 @@ public class Group {
 
     @Column(name = "group_name", nullable = false)
     private String groupName;
-    // Конструктор по умолчанию
+
     public Group() {
     }
 
-    // Конструктор с параметрами
+
     public Group(int groupId, String groupName) {
         this.groupId = groupId;
         this.groupName = groupName;
     }
 
-    // Геттеры и сеттеры
+
 
     public int getGroupId() {
         return groupId;

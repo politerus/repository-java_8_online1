@@ -25,7 +25,7 @@ public class StudentController {
     }
 
     public Student getStudentById(int studentId) {
-        return studentService.getStudentById(studentId); // Исправлено
+        return studentService.getStudentById(studentId);
     }
 
     public List<Student> getAllStudents() {

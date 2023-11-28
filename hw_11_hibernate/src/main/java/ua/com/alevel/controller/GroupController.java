@@ -20,10 +20,6 @@ public class GroupController {
         groupService.updateGroup(group);
     }
 
-    public void deleteGroup(int groupId) {
-        groupService.deleteGroup(groupId);
-    }
-
     public List<Group> getAllGroups() {
         return groupService.getAllGroups();
     }

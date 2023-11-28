@@ -28,7 +28,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>ua.com.alevel.MainCrudHiber</mainClass>
+                  <mainClass>ua.com.alevel.MainCrudServlet</mainClass>
                 </transformer>
               </transformers>
             </configuration>

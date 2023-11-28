@@ -20,26 +20,10 @@ public class Student {
     public Student() {
     }
 
-    public Student(int studentId, String name, Group group) { // Исправлено
+    public Student(int studentId, String name, Group group) {
         this.studentId = studentId;
         this.name = name;
         this.group = group;
-    }
-    // Геттеры и сеттеры
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Group getGroup() {
