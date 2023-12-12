@@ -32,6 +32,6 @@ public class UpdateGroupServlet extends HttpServlet {
         group.setGroupName(groupName);
 
         groupService.updateGroup(group);
-        response.sendRedirect("groups.jsp"); // Перенаправление на страницу со списком групп
+        response.sendRedirect("groups.jsp");
     }
 }

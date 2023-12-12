@@ -15,7 +15,7 @@ import java.io.IOException;
 
 //@WebServlet(name = "AddStudentServlet", urlPatterns = {"/addStudent"})
 public class AddStudentServlet extends HttpServlet {
-    private StudentService studentService; // Сервис для работы со студентами
+    private StudentService studentService;
 
     @Override
     public void init() {
@@ -33,6 +33,6 @@ public class AddStudentServlet extends HttpServlet {
         student.setGroup(group);
 
         studentService.addStudent(student);
-        response.sendRedirect("students.jsp"); // Перенаправление на страницу со списком студентов
+        response.sendRedirect("students.jsp");
     }
 }

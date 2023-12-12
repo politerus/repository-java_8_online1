@@ -1,9 +1,11 @@
 package ua.com.alevel.util;
 
+import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
+    @Getter
     private static SessionFactory sessionFactory;
 
     static {
@@ -25,7 +27,4 @@ public class HibernateUtil {
         }
     }
 
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
 }

@@ -21,7 +21,6 @@ public class GroupsServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        // Инициализация GroupService с использованием GroupDaoImpl
         this.groupService = new GroupService(new GroupDaoImpl());
     }
 

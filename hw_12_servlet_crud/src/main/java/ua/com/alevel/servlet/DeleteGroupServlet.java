@@ -27,6 +27,6 @@ public class DeleteGroupServlet extends HttpServlet {
         int groupId = Integer.parseInt(request.getParameter("groupId"));
 
         groupService.deleteGroup(groupId);
-        response.sendRedirect("groups.jsp"); // Перенаправление на страницу со списком групп
+        response.sendRedirect("groups.jsp");
     }
 }
