@@ -1,5 +1,10 @@
 package ua.com.alevel.servlet;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import ua.com.alevel.dao.GroupDaoImpl;
 import ua.com.alevel.dao.StudentDaoImpl;
 import ua.com.alevel.entity.Group;
@@ -7,13 +12,9 @@ import ua.com.alevel.entity.Student;
 import ua.com.alevel.service.GroupService;
 import ua.com.alevel.service.StudentService;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//@WebServlet(name = "AddStudentServlet", urlPatterns = {"/addStudent"})
+@WebServlet("/addStudent")
 public class AddStudentServlet extends HttpServlet {
     private StudentService studentService;
 
