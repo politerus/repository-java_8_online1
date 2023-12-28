@@ -6,7 +6,7 @@
     <session-factory>
         <!-- Настройки подключения к базе данных -->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Students</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/buyer</property>
         <property name="hibernate.connection.username">admin</property>
         <property name="hibernate.connection.password">password</property>
 

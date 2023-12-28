@@ -1,4 +1,4 @@
-package ua.com.alevel.util;
+/*package ua.com.alevel.util;
 
 import lombok.Getter;
 import org.hibernate.SessionFactory;
@@ -28,3 +28,5 @@ public class HibernateUtil {
     }
 
 }
+
+ */

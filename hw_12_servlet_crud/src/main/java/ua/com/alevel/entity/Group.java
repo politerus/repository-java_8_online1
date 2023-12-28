@@ -3,7 +3,7 @@ package ua.com.alevel.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "`Groups`")
+@Table(name = "'Groups'")
 public class Group {
 
     @Id

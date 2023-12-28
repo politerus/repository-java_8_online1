@@ -3,7 +3,7 @@ package ua.com.alevel.dao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ua.com.alevel.entity.Group;
-import ua.com.alevel.util.HibernateUtil;
+import ua.com.alevel.util.HibernateConfig;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public void create(Group group) {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateConfig.getInstance().getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.save(group);
             transaction.commit();
@@ -27,7 +27,7 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public void update(Group group) {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateConfig.getInstance().getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.update(group);
             transaction.commit();
@@ -42,7 +42,7 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public void delete(int groupId) {
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateConfig.getInstance().getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             Group group = session.get(Group.class, groupId);
             if (group != null) {
@@ -60,7 +60,7 @@ public class GroupDaoImpl implements GroupDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Group> findAll() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateConfig.getInstance().getSessionFactory().openSession()) {
             return session.createQuery("from Group").list();
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class GroupDaoImpl implements GroupDao {
     }
     @Override
     public Group findById(int groupId) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateConfig.getInstance().getSessionFactory().openSession()) {
             return session.get(Group.class, groupId);
         } catch (Exception e) {
             e.printStackTrace();
