@@ -1,72 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Обновление информации о студенте</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body, html {
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: 'Consolas', 'Arial', sans-serif;
-            background: #282a36;
-            color: #f8f8f2;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 100%);
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .container {
-            width: 70%;
-            max-width: 800px;
-            min-width: 300px;
-            resize: both;
-            overflow: auto;
-            background: #44475a;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-10px);
         }
         h1 {
-            color: #ff79c6;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
         }
         form {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-container {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-in-out;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            align-items: center;
+        }
+        form:hover .input-container {
+            max-height: 200px;
         }
         label {
-            display: block;
+            font-weight: 600;
+            color: #333;
             margin-bottom: 5px;
-            color: #8be9fd;
         }
         input[type="text"], input[type="number"] {
-            width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
-            background: #6272a4;
-            border: none;
-            border-radius: 4px;
-            color: #f8f8f2;
-            font-size: 16px;
+            margin-bottom: 20px;
+            border: 2px solid #fbc2eb;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f6f6f6;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: #a6c1ee;
+            outline: none;
+            background-color: white;
         }
         input[type="submit"] {
-            background-color: #50fa7b;
-            color: black;
+            background-color: #fbc2eb;
+            color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+            grid-column: 1 / -1;
         }
         input[type="submit"]:hover {
-            background-color: #64e88b;
-        }
-        #corner-image {
-            position: absolute;
-            top: 20px; /* Расположение сверху */
-            right: 20px; /* Расположение справа */
-            width: 100px; /* Ширина изображения */
-            height: 100px; /* Высота изображения */
-            border-radius: 50%; /* Закругление углов, чтобы сделать изображение круглым */
-            z-index: 1; /* Расположение над остальным содержимым */
+            background-color: #a6c1ee;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -74,21 +89,24 @@
 <div class="container">
     <h1>Обновление информации о студенте</h1>
     <form action="/updateStudent" method="post">
-        <label for="studentId">ID Студента:</label>
-        <input type="number" id="studentId" name="studentId" required>
+        <div class="input-container">
+            <label for="studentId">ID Студента:</label>
+            <input type="number" id="studentId" name="studentId" required>
+        </div>
 
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required>
+        <div class="input-container">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
 
-        <label for="groupId">ID Группы:</label>
-        <input type="number" id="groupId" name="groupId" required>
+        <div class="input-container">
+            <label for="groupId">ID Группы:</label>
+            <input type="number" id="groupId" name="groupId" required>
+        </div>
 
         <input type="submit" value="Обновить информацию о студенте">
     </form>
-    <img src="images/alevel.png" alt="Описание изображения" id="corner-image" width="2000" height="1500">
-
-
-
 </div>
 </body>
 </html>
+
