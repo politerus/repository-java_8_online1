@@ -1,6 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="ua.com.alevel.entity.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Список студентов</title>
@@ -12,7 +12,6 @@
         <th>ID</th>
         <th>Имя</th>
         <th>Группа</th>
-        <th>Действия</th>
     </tr>
     <%
         List<Student> students = (List<Student>) request.getAttribute("students");
@@ -21,11 +20,7 @@
     <tr>
         <td><%= student.getStudentId() %></td>
         <td><%= student.getName() %></td>
-        <td><%= student.getGroup().getGroupName() %></td>
-        <td>
-            <a href="updateStudent?studentId=<%= student.getStudentId() %>">Редактировать</a>
-            <a href="deleteStudent?studentId=<%= student.getStudentId() %>">Удалить</a>
-        </td>
+        <td><%= student.getGroup() != null ? student.getGroup().getGroupName() : "Нет группы" %></td>
     </tr>
     <% } %>
 </table>

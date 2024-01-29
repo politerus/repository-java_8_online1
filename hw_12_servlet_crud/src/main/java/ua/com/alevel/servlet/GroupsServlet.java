@@ -5,12 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import ua.com.alevel.dao.GroupDaoImpl;
 import ua.com.alevel.entity.Group;
 import ua.com.alevel.service.GroupService;
-import ua.com.alevel.dao.GroupDaoImpl;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/groups")
@@ -25,20 +24,9 @@ public class GroupsServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Group> groups = groupService.getAllGroups();
-
-        out.println("<html><body>");
-        out.println("<h1>Список групп</h1>");
-        out.println("<ul>");
-        for (Group group : groups) {
-            out.println("<li>" + group.getGroupName() + " (ID: " + group.getGroupId() + ")</li>");
-        }
-        out.println("</ul>");
-        out.println("</body></html>");
+        request.setAttribute("groups", groups);
+        request.getRequestDispatcher("/path/to/groups.jsp").forward(request, response);
     }
 }

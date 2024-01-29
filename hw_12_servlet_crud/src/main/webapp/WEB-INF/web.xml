@@ -1,20 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <servlet>
+        <servlet-name>AddGroupServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.AddGroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddGroupServlet</servlet-name>
+        <url-pattern>/addGroup</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>AddStudentServlet</servlet-name>
         <servlet-class>ua.com.alevel.servlet.AddStudentServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>AddStudentServlet</servlet-name>
-        <url-pattern>/Servlet/addStudent</url-pattern>
+        <url-pattern>/addStudent</url-pattern>
     </servlet-mapping>
 
-    <!-- Добавьте другие сервлеты и их маппинги здесь -->
+    <servlet>
+        <servlet-name>DeleteGroupServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.DeleteGroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteGroupServlet</servlet-name>
+        <url-pattern>/deleteGroup</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.DeleteStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <url-pattern>/deleteStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateGroupServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.UpdateGroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateGroupServlet</servlet-name>
+        <url-pattern>/updateGroup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateStudentServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.UpdateStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateStudentServlet</servlet-name>
+        <url-pattern>/updateStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GroupsServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.GroupsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GroupsServlet</servlet-name>
+        <url-pattern>/groups</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentsServlet</servlet-name>
+        <servlet-class>ua.com.alevel.servlet.StudentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentsServlet</servlet-name>
+        <url-pattern>/students</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

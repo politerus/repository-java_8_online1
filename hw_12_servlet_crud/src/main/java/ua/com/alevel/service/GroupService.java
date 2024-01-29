@@ -2,7 +2,6 @@ package ua.com.alevel.service;
 
 import ua.com.alevel.dao.GroupDao;
 import ua.com.alevel.entity.Group;
-
 import java.util.List;
 
 public class GroupService {
@@ -24,11 +23,11 @@ public class GroupService {
         groupDao.delete(groupId);
     }
 
-    public List<Group> getAllGroups() {
-        return groupDao.findAll();
-    }
     public Group getGroupById(int groupId) {
         return groupDao.findById(groupId);
     }
 
+    public List<Group> getAllGroups() {
+        return groupDao.findAll();
+    }
 }

@@ -1,4 +1,4 @@
-package ua.com.alevel;
+/*package ua.com.alevel;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -35,3 +35,6 @@ public class Decision {
         }
     }
 }
+
+
+ */

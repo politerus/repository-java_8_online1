@@ -1,4 +1,4 @@
-package ua.com.alevel;
+/*package ua.com.alevel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,3 +53,6 @@ public class Main {
         System.out.println("Время окончания урока: " + hours + ":" + minutes);
     }
 }
+
+
+ */

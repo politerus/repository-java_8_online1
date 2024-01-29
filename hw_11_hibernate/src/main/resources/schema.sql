@@ -1,3 +1,5 @@
+USE Students;
+
 CREATE TABLE `Groups` (
                           group_id int auto_increment primary key,
                           group_name varchar(255) not null

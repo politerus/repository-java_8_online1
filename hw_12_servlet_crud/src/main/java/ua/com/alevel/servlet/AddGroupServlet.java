@@ -5,10 +5,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import ua.com.alevel.dao.GroupDaoImpl;
 import ua.com.alevel.entity.Group;
 import ua.com.alevel.service.GroupService;
-
+import ua.com.alevel.dao.GroupDaoImpl;
 import java.io.IOException;
 
 @WebServlet("/addGroup")
@@ -23,13 +22,9 @@ public class AddGroupServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String groupName = request.getParameter("groupName");
-
-        Group group = new Group();
-        group.setGroupName(groupName);
-
+        Group group = new Group(groupName);
         groupService.addGroup(group);
         response.sendRedirect("groups.jsp");
     }

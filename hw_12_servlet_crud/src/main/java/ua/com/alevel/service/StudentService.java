@@ -2,7 +2,6 @@ package ua.com.alevel.service;
 
 import ua.com.alevel.dao.StudentDao;
 import ua.com.alevel.entity.Student;
-
 import java.util.List;
 
 public class StudentService {
@@ -24,13 +23,15 @@ public class StudentService {
         studentDao.delete(studentId);
     }
 
+    public Student getStudentById(int studentId) {
+        return studentDao.findById(studentId);
+    }
+
     public List<Student> getAllStudents() {
         return studentDao.findAll();
     }
+
     public List<Student> findStudentsByGroupId(int groupId) {
         return studentDao.findStudentsByGroupId(groupId);
-    }
-    public Student getStudentById(int studentId) { // Удален модификатор static
-        return studentDao.findById(studentId);
     }
 }
