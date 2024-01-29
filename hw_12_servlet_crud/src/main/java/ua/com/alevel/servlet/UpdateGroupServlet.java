@@ -11,7 +11,7 @@ import ua.com.alevel.dao.GroupDaoImpl;
 import java.io.IOException;
 
 @WebServlet("/updateGroup")
-public class UpdateGroupServlet extends HttpServlet {
+public class  UpdateGroupServlet extends HttpServlet {
 
     private GroupService groupService;
 
